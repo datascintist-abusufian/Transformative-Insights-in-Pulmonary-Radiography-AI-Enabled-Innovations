@@ -1,8 +1,10 @@
 # Thoracic Radiograph Classification with Deep Learning
 
-Multi-label classification of frontal chest radiographs across the fourteen ChestX-ray8 pathology labels, with Grad-CAM interpretation, AUROC benchmarking against published radiologist performance, and a case-level cross-check against hospital clinical notes.
+Multi-label classification of frontal chest radiographs across the fourteen ChestX-ray8 pathology labels, with Grad-CAM interpretation, AUROC benchmarking against published radiologist performance, and a case-level cross-check against a synthetic clinical-notes table.
 
-> **Provenance note.** `DensNet121.ipynb` and `Resnet50File_ChestXRay_Medical_Diagnosis_Deep_Learning.ipynb.ipynb` are the programming-assignment notebooks from the *AI for Medical Diagnosis* course; the opening cell reads "Welcome to the first assignment of AI for Medical Diagnosis!". They are retained here as working copies and are not original implementations. The original material in this repository is the AUC benchmarking figure, the graphical abstract and the clinical-notes cross-validation against the hospital dataset.
+> **Provenance note.** `DensNet121.ipynb` and `Resnet50File_ChestXRay_Medical_Diagnosis_Deep_Learning.ipynb.ipynb` are the programming-assignment notebooks from the *AI for Medical Diagnosis* course; the opening cell reads "Welcome to the first assignment of AI for Medical Diagnosis!". They are retained here as working copies and are not original implementations. The original material in this repository is the AUC benchmarking figure, the graphical abstract and the clinical-notes cross-validation against the synthetic clinical-notes dataset.
+
+> **Synthetic data notice.** `Hospital_Clinical_Notes_Dataset.xlsx` is a **synthetic** dataset. Its 10,000 records, patient IDs, symptoms, conditions and medications are computer-generated, do not describe real patients and contain no protected health information. The file name refers to the hospital-style format it imitates, not to its origin.
 
 ## Architecture
 
@@ -24,7 +26,7 @@ Fourteen binary labels are predicted independently: atelectasis, cardiomegaly, c
 
 **Interpretation.** Grad-CAM maps are computed from the final convolutional block, bilinearly upsampled to input resolution and alpha-blended over the radiograph, giving a coarse spatial account of which region drove each positive prediction.
 
-**Clinical cross-check.** A hospital clinical-notes table is held as an XLSX file and cross-referenced against image-level predictions to assess whether the predicted labels are plausible at case level.
+**Clinical cross-check.** A synthetic clinical-notes table is held as an XLSX file and cross-referenced against image-level predictions to assess whether the predicted labels are plausible at case level.
 
 ## Repository contents
 
@@ -35,7 +37,7 @@ Fourteen binary labels are predicted independently: atelectasis, cardiomegaly, c
 | `AUC_values_for_the_CheXNeXt_model_and_radiologists_on_the_dataset.ipynb` | Per-pathology AUC comparison figure |
 | `Clinical_Validation_on_image_datas.ipynb` | Cross-check of predictions against the clinical-notes table |
 | `Transformative_Insights_in_Pulmonary_Radiography_AI_Enabled_Innovations.ipynb` | Main study notebook |
-| `Hospital_Clinical_Notes_Dataset.xlsx` | Clinical-notes table used for the case-level cross-check |
+| `Hospital_Clinical_Notes_Dataset.xlsx` | Synthetic clinical-notes table (10,000 computer-generated records; no real patients) used for the case-level cross-check |
 | `Graphical_Abstract (1).ipynb` | Matplotlib graphical abstract |
 | `docs/architecture.svg` | Vector source for Figure 1 |
 
